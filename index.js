@@ -24,6 +24,9 @@ module.exports = function (filename, opts) {
 
 		// because Windows...
 		var pathname = file.relative.replace(/\\/g, '/');
+		if (opts.normalize) {
+			pathname = pathname.normalize();
+		}
 
 		if (!pathname) {
 			cb();
